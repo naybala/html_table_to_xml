@@ -1,16 +1,12 @@
 function convertTableToXML(tableId) {
-    // Find the table element
     var table = document.querySelector(tableId);
     if (!table) {
         console.error('Table with id ' + tableId + ' not found.');
         return;
     }
-
-    // Create an XML document
     var xmlDocument = document.implementation.createDocument(null, 'tableData');
-
-    // Iterate through rows and cells
     var rows = table.getElementsByTagName('tr');
+
     for (var i = 0; i < rows.length; i++) {
         var row = rows[i];
         var xmlRow = xmlDocument.createElement('row');
@@ -23,17 +19,20 @@ function convertTableToXML(tableId) {
             xmlRow.appendChild(xmlElement);
         }
         xmlDocument.documentElement.appendChild(xmlRow);
+      
     }
-    return xmlDocument;
+    var xmlString = new XMLSerializer().serializeToString(xmlDocument);
+    console.log(xmlString);
+    // return xmlDocument;
 }
 
-function downloadXML() {
-    var xmlDocument = convertTableToXML('#myTable');
+function downloadXML(xmlName,tableId) {
+    var xmlDocument = convertTableToXML(tableId);
     var xmlString = new XMLSerializer().serializeToString(xmlDocument);
     var blob = new Blob([xmlString], { type: 'text/xml' });
     var a = document.createElement('a');
     a.href = URL.createObjectURL(blob);
-    a.download = 'table_data.xml';
+    a.download = xmlName+'.xml';
     document.body.appendChild(a);
     a.click();
     document.body.removeChild(a);
@@ -41,5 +40,5 @@ function downloadXML() {
 
 var changeBtn = document.querySelector("#change-xml");
 changeBtn.addEventListener("click",function(){
-    downloadXML();
+    downloadXML('table_data','#myTable');
 })
