@@ -25,11 +25,24 @@ function convertTableToXML(tableId) {
         xmlDocument.documentElement.appendChild(xmlRow);
     }
 
+    // var xmlString = new XMLSerializer().serializeToString(xmlDocument);
+    // console.log(xmlString);
+    return xmlDocument;
+}
+
+function downloadXML() {
+    var xmlDocument = convertTableToXML('#myTable');
     var xmlString = new XMLSerializer().serializeToString(xmlDocument);
-    console.log(xmlString);
+    var blob = new Blob([xmlString], { type: 'text/xml' });
+    var a = document.createElement('a');
+    a.href = URL.createObjectURL(blob);
+    a.download = 'table_data.xml';
+    document.body.appendChild(a);
+    a.click();
+    document.body.removeChild(a);
 }
 
 var changeBtn = document.querySelector("#change-xml");
 changeBtn.addEventListener("click",function(){
-    convertTableToXML("#myTable");
+    downloadXML();
 })
