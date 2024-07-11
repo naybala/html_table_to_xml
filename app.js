@@ -27,6 +27,9 @@ function convertTableToXML(tableId) {
      return xmlDocument;
 }
 
+
+
+
 function downloadXML(xmlName,tableId) {
     var xmlDocument = convertTableToXML(tableId);
     var xmlString = new XMLSerializer().serializeToString(xmlDocument);
