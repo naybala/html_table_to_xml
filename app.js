@@ -24,9 +24,6 @@ function convertTableToXML(tableId) {
         }
         xmlDocument.documentElement.appendChild(xmlRow);
     }
-
-    // var xmlString = new XMLSerializer().serializeToString(xmlDocument);
-    // console.log(xmlString);
     return xmlDocument;
 }
 
