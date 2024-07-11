@@ -4,12 +4,15 @@ function convertTableToXML(tableId) {
         console.error('Table with id ' + tableId + ' not found.');
         return;
     }
-    var xmlDocument = document.implementation.createDocument(null, 'tableData');
-    var rows = table.getElementsByTagName('tr');
-
+    var xmlDocument = document.implementation.createDocument(null, 'data');
+    xmlDocument =  xmlDocument.appendChild("tableData");
+    var tbody = table.getElementsByTagName('tbody')[0];
+    var rows = tbody.getElementsByTagName('tr');
     for (var i = 0; i < rows.length; i++) {
         var row = rows[i];
+        var rowId = row.getAttribute('id');
         var xmlRow = xmlDocument.createElement('row');
+        xmlRow.setAttribute('id', rowId);
         var cells = row.getElementsByTagName('td');
         for (var j = 0; j < cells.length; j++) {
             var cell = cells[j];
@@ -19,11 +22,9 @@ function convertTableToXML(tableId) {
             xmlRow.appendChild(xmlElement);
         }
         xmlDocument.documentElement.appendChild(xmlRow);
-      
+       
     }
-    var xmlString = new XMLSerializer().serializeToString(xmlDocument);
-    console.log(xmlString);
-    // return xmlDocument;
+     return xmlDocument;
 }
 
 function downloadXML(xmlName,tableId) {
