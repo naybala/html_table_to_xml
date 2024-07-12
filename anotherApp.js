@@ -21,9 +21,9 @@ function convertTableToXML(tableId,xmlName) {
 
 
 function downloadXML(tableId,xmlName) {
-    var xmlString = convertTableToXML(tableId,xmlName);
-    var blob = new Blob([xmlString], { type: 'text/xml' });
-    var a = document.createElement('a');
+    const xmlString = convertTableToXML(tableId,xmlName);
+    const blob = new Blob([xmlString], { type: 'text/xml' });
+    const a = document.createElement('a');
     a.href = URL.createObjectURL(blob);
     a.download = xmlName+'.xml';
     document.body.appendChild(a);
@@ -31,7 +31,10 @@ function downloadXML(tableId,xmlName) {
     document.body.removeChild(a);
 }
 
-var changeBtn = document.querySelector("#change-xml");
+const tableId = document.querySelector("#table-name").value;
+const xmlName = document.querySelector("#xml-name").value;
+const changeBtn = document.querySelector("#change-xml");
+console.log(tableId,xmlName);
 changeBtn.addEventListener("click",function(){
-    downloadXML('#myTable','HelloInfo');
+    downloadXML(tableId,xmlName);
 })

@@ -6,28 +6,63 @@
         <title>Document</title>
     </head>
     <body>
-        <table id="myTable">
+        <!-- Value should be table id-->
+        <input type="hidden" value="#my-table" id="table-name">
+        <!-- Xml Name -->
+        <input type="hidden" value="lao-bol-report" id="xml-name">
+        <table id="my-table" style="border: 1px solid black;">
             <thead>
                 <tr>
-                    <th>Name</th>
-                    <th>Age</th>
-                    <th>City</th>
+                    <th>firstname_LA</th>
+                    <th>lastname_LA</th>
+                    <th>firstname_EN</th>
+                    <th>lastname_EN</th>
+                    <th>dateofbirth</th>
+                    <th>age</th>
+                    <th>gender_id</th>
+                    <th>nationality_id</th>
+                    <th>marital_status_id</th>
+                    <th>career_id</th>
+                    <th>village_id</th>
+                    <th>home_address</th>
+                    <th>contact_info</th>
                 </tr>
             </thead>
             <tbody>
                 <tr id="1">
-                    <td>John Doe</td>
-                    <td>30</td>
-                    <td>New York</td>
+                    <td>ດຳ</td>
+                    <td>ແດງ</td>
+                    <td>Dam</td>
+                    <td>Deng</td>
+                    <td>1950-07-25</td>
+                    <td>31</td>
+                    <td>1</td>
+                    <td>1</td>
+                    <td>1</td>
+                    <td>1</td>
+                    <td>100</td>
+                    <td>home address</td>
+                    <td>020 xxxxxxxx</td>
                 </tr>
                 <tr id="2">
-                    <td>Jane Smith</td>
-                    <td>25</td>
-                    <td>Los Angeles</td>
+                    <td>ແສງ</td>
+                    <td>ດາວ</td>
+                    <td>Seng</td>
+                    <td>Dao</td>
+                    <td>1995-10-15</td>
+                    <td>26</td>
+                    <td>2</td>
+                    <td>1</td>
+                    <td>1</td>
+                    <td>2</td>
+                    <td>1000</td>
+                    <td>home address</td>
+                    <td>020 xxxxxxxx</td>
                 </tr>
             </tbody>
         </table>
-        <button id="change-xml">Change</button>
+        <br><br>
+        <button id="change-xml">Export To XML</button>
     </body>
     <script src="anotherApp.js"></script>
 </html>
