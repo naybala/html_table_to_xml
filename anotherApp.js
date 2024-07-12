@@ -41,7 +41,7 @@ const downloadXML = (tableId, xmlName) => {
 
 const tableId = document.querySelector("#table-name").value;
 const xmlName = document.querySelector("#xml-name").value;
-const changeBtn = document.querySelector("#change-xml");
+const changeBtn = document.querySelector("#html-table-to-xml");
 changeBtn.addEventListener("click", function () {
   downloadXML(tableId, xmlName);
 });
