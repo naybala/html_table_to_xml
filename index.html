@@ -5,6 +5,11 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>Document</title>
     </head>
+    <style>
+        .hidden {
+            display: none;
+        }
+    </style>
     <body>
         <!-- Value should be table id-->
         <input type="hidden" value="#my-table" id="table-name">
@@ -12,6 +17,11 @@
         <input type="hidden" value="lao-bol-report" id="xml-name">
         <table id="my-table" style="border: 1px solid black;">
             <thead>
+                <tr class="hidden">
+                    <th>
+                        Hello
+                    </th>
+                </tr>
                 <tr>
                     <th>firstname_LA</th>
                     <th>lastname_LA</th>
